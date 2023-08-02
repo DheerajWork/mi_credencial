@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:mi_credencial/src/custom_widgets/news_content_card.dart';
 import 'package:mi_credencial/src/model_class/content_model.dart';
@@ -42,27 +41,31 @@ class _NewsContentsState extends State<NewsContents> {
         title: Text("Novedades", style: MyStyles.black20Regular),
         centerTitle: true,
       ),
-      body: Padding(
-          padding: const EdgeInsets.all(20),
-          child: ListView.builder(
-            itemCount: contentList.length,
-            itemBuilder: (c, i) {
-              return NewsContentCard(
-                  img: "${contentList[i].dsImage}",
-                  title: "${contentList[i].dsTitle}",
-                  subject: "${contentList[i].dsSubject}",
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (_) => NewsDetailsScreen(
-                              title: contentList[i].dsTitle,
-                              img: contentList[i].dsImage,
-                              details: contentList[i].dsContent,
-                              sub: contentList[i].dsSubject,
-                              dsFile: contentList[i].dsFile,
-                            )));
-                  });
-            },
-          )),
+      body: contentList.isEmpty
+          ? const Center(child: CircularProgressIndicator())
+          : Padding(
+              padding: const EdgeInsets.all(20),
+              child: ListView.builder(
+                itemCount: contentList.length,
+                itemBuilder: (c, i) {
+                  return NewsContentCard(
+                      img: contentList[i].dsImage!.isEmpty
+                          ? "${const Center(child: CircularProgressIndicator())}"
+                          : "${contentList[i].dsImage}",
+                      title: "${contentList[i].dsTitle}",
+                      subject: "${contentList[i].dsSubject}",
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (_) => NewsDetailsScreen(
+                                  title: contentList[i].dsTitle,
+                                  img: contentList[i].dsImage,
+                                  details: contentList[i].dsContent,
+                                  sub: contentList[i].dsSubject,
+                                  dsFile: contentList[i].dsFile,
+                                )));
+                      });
+                },
+              )),
     );
   }
 }

@@ -18,7 +18,7 @@ class NewsDetailsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: MyColors.white,
       appBar: AppBar(
-        title: Text("Novedad"),
+        title: const Text("Novedad"),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -70,7 +70,7 @@ class NewsDetailsScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              dsFile!.isNotEmpty == true
+              dsFile!.isNotEmpty
                   ? Container(
                       width: double.infinity,
                       height: 72,

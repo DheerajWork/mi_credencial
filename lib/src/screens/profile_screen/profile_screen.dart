@@ -63,91 +63,96 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   _bottomSheet(context) {
     showModalBottomSheet(
+        isScrollControlled: true,
         context: context,
         builder: (c) {
-          return Container(
-            width: double.infinity,
-            height: 472,
-            decoration: BoxDecoration(
-                color: MyColors.white,
-                borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(50),
-                    topRight: Radius.circular(50))),
-            child: Padding(
-              padding: const EdgeInsets.only(
-                  right: 15, left: 15, bottom: 10, top: 20),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Icon(Icons.close)),
-                    ],
-                  ),
-                  Text(
-                    "Actualizar Datos",
-                    style: MyStyles.black20Regular,
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Text(
-                    "Es importante que actualice sus datos de contacto",
-                    style: MyStyles.gray15Light,
-                  ),
-                  const SizedBox(
-                    height: 25,
-                  ),
-                  CustomTextField(
-                    icon: false,
-                    hint: "xxxxxxxxxx",
-                    title: "Teléfono",
-                    keyboardType: TextInputType.number,
-                    controller: phoneCont,
-                    validator: (v) {},
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  CustomTextField(
-                    icon: false,
-                    hint: "e-mail",
-                    title: "e-mail",
-                    keyboardType: TextInputType.emailAddress,
-                    controller: emailCont,
-                    validator: (v) {},
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        update();
-                        getData();
-                      });
-                    },
-                    child: Container(
-                      width: 236,
-                      height: 46,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: MyColors.bgClr,
-                        border:
-                            Border.all(color: MyColors.themeClr, width: 1.5),
-                      ),
-                      child: Center(
-                        child: Text("Actualizar",
-                            style: MyStyles.blue18Light.copyWith(
-                                fontSize: 20, fontWeight: FontWeight.w600)),
+          return Padding(
+            padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom),
+            child: Container(
+              width: double.infinity,
+              height: 472,
+              decoration: BoxDecoration(
+                  color: MyColors.white,
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(50),
+                      topRight: Radius.circular(50))),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    right: 15, left: 15, bottom: 10, top: 20),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Icon(Icons.close)),
+                      ],
+                    ),
+                    Text(
+                      "Actualizar Datos",
+                      style: MyStyles.black20Regular,
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      "Es importante que actualice sus datos de contacto",
+                      style: MyStyles.gray15Light,
+                    ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    CustomTextField(
+                      icon: false,
+                      hint: "xxxxxxxxxx",
+                      title: "Teléfono",
+                      keyboardType: TextInputType.number,
+                      controller: phoneCont,
+                      validator: (v) {},
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    CustomTextField(
+                      icon: false,
+                      hint: "e-mail",
+                      title: "e-mail",
+                      keyboardType: TextInputType.emailAddress,
+                      controller: emailCont,
+                      validator: (v) {},
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          update();
+                          getData();
+                        });
+                      },
+                      child: Container(
+                        width: 236,
+                        height: 46,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: MyColors.bgClr,
+                          border:
+                              Border.all(color: MyColors.themeClr, width: 1.5),
+                        ),
+                        child: Center(
+                          child: Text("Actualizar",
+                              style: MyStyles.blue18Light.copyWith(
+                                  fontSize: 20, fontWeight: FontWeight.w600)),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );
@@ -169,123 +174,127 @@ class _ProfileScreenState extends State<ProfileScreen> {
         centerTitle: true,
         title: const Text("Mis datos"),
       ),
-      body: userDetails==null?const Center(child: CircularProgressIndicator()):Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Stack(
+      body: userDetails == null
+          ? const Center(child: CircularProgressIndicator())
+          : Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      width: 170,
-                      height: 164,
-                      child: Center(
+                    Center(
+                      child: Stack(
+                        children: [
+                          SizedBox(
+                            width: 170,
+                            height: 164,
+                            child: Center(
+                              child: Container(
+                                width: 147,
+                                height: 141,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(
+                                        color: MyColors.themeClr, width: 3)),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            right: 0,
+                            bottom: 0,
+                            child: Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: MyColors.themeClr),
+                              child: Center(
+                                child: Icon(Icons.edit, color: MyColors.white),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    ProfileCol(
+                      title: "Nombre y apellido",
+                      text: data!.dsName,
+                    ),
+                    ProfileCol(
+                      title: "Documento",
+                      text: data.dsDocument,
+                    ),
+                    ProfileCol(
+                      title: "CUIL",
+                      text: data.dsCuil,
+                    ),
+                    ProfileCol(
+                      title: "Fecha de nacimiento",
+                      text: data.dtBirthday,
+                    ),
+                    ProfileCol(
+                      title: "Teléfono",
+                      text: data.dsPhone,
+                    ),
+                    ProfileCol(
+                      title: "Dirección",
+                      text: data.dsAddress,
+                    ),
+                    ProfileCol(
+                      title: "Localidad",
+                      text: data.dsCity,
+                    ),
+                    ProfileCol(
+                      title: "Provincia",
+                      text: data.dsProvince,
+                    ),
+                    ProfileCol(
+                      title: "Empresa",
+                      text: data.dsCompany,
+                    ),
+                    ProfileCol(
+                      title: "Seccional",
+                      text: data.dsSeccional,
+                    ),
+                    ProfileCol(
+                      title: "e-mail",
+                      text: data.dsMail,
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    Center(
+                      child: InkWell(
+                        onTap: () {
+                          _bottomSheet(context);
+                        },
                         child: Container(
-                          width: 147,
-                          height: 141,
+                          width: 236,
+                          height: 46,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                  color: MyColors.themeClr, width: 3)),
+                            borderRadius: BorderRadius.circular(10),
+                            color: MyColors.bgClr,
+                            border: Border.all(
+                                color: MyColors.themeClr, width: 1.5),
+                          ),
+                          child: Center(
+                            child: Text("Editar datos",
+                                style: MyStyles.blue18Light.copyWith(
+                                    fontSize: 20, fontWeight: FontWeight.w600)),
+                          ),
                         ),
                       ),
                     ),
-                    Positioned(
-                      right: 0,
-                      bottom: 0,
-                      child: Container(
-                        width: 40,
-                        height: 40,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: MyColors.themeClr),
-                        child: Center(
-                          child: Icon(Icons.edit, color: MyColors.white),
-                        ),
-                      ),
+                    const SizedBox(
+                      height: 20,
                     ),
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 30,
-              ),
-              ProfileCol(
-                title: "Nombre y apellido",
-                text: data!.dsName,
-              ),
-              ProfileCol(
-                title: "Documento",
-                text: data.dsDocument,
-              ),
-              ProfileCol(
-                title: "CUIL",
-                text: data.dsCuil,
-              ),
-              ProfileCol(
-                title: "Fecha de nacimiento",
-                text: data.dtBirthday,
-              ),
-              ProfileCol(
-                title: "Teléfono",
-                text: data.dsPhone,
-              ),
-              ProfileCol(
-                title: "Dirección",
-                text: data.dsAddress,
-              ),
-              ProfileCol(
-                title: "Localidad",
-                text: data.dsCity,
-              ),
-              ProfileCol(
-                title: "Provincia",
-                text: data.dsProvince,
-              ),
-              ProfileCol(
-                title: "Empresa",
-                text: data.dsCompany,
-              ),
-              ProfileCol(
-                title: "Seccional",
-                text: data.dsSeccional,
-              ),
-              ProfileCol(
-                title: "e-mail",
-                text: data.dsMail,
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              Center(
-                child: InkWell(
-                  onTap: () {
-                    _bottomSheet(context);
-                  },
-                  child: Container(
-                    width: 236,
-                    height: 46,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: MyColors.bgClr,
-                      border: Border.all(color: MyColors.themeClr, width: 1.5),
-                    ),
-                    child: Center(
-                      child: Text("Editar datos",
-                          style: MyStyles.blue18Light.copyWith(
-                              fontSize: 20, fontWeight: FontWeight.w600)),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-            ],
-          ),
-        ),
-      ),
+            ),
     );
   }
 }

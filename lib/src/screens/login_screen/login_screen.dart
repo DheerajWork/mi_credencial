@@ -46,79 +46,73 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bgClr,
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const SizedBox(
-              height: 100,
-            ),
-            Image.asset(MyImages.logo, width: 234, height: 100),
-            SizedBox(
-              height: MediaQuery.of(context).size.height*.1,
-            ),
-            Container(
-              width: double.infinity,
-              height: 500,
-              decoration: BoxDecoration(
-                  color: MyColors.white,
-                  borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(50),
-                      topLeft: Radius.circular(50))),
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const SizedBox(
-                      height: 20,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Spacer(),
+          Image.asset(MyImages.logo, width: 234, height: 100),
+          const Spacer(),
+          Container(
+            width: double.infinity,
+            height: 500,
+            decoration: BoxDecoration(
+                color: MyColors.white,
+                borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(50),
+                    topLeft: Radius.circular(50))),
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "Ingrese sus datos para acceder",
+                    style: MyStyles.black18Light,
+                  ),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  CustomTextField(
+                    title: "Número de documento",
+                    hint: "Ingrese su documento",
+                    controller: numCont,
+                    icon: false,
+                  ),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  CustomTextField(
+                    title: "Fecha de nacimiento",
+                    hint: "Seleccione la fecha de su nacimiento",
+                    controller: dateCont,
+                    icon: true,
+                  ),
+                  const SizedBox(
+                    height: 60,
+                  ),
+                  SizedBox(
+                    width: 240,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        userLogin();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: MyColors.themeClr,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10))),
+                      child: Text("Ingresar", style: MyStyles.white20Normal),
                     ),
-                    Text(
-                      "Ingrese sus datos para acceder",
-                      style: MyStyles.black18Light,
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    CustomTextField(
-                      title: "Número de documento",
-                      hint: "Ingrese su documento",
-                      controller: numCont,
-                      icon: false,
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    CustomTextField(
-                      title: "Fecha de nacimiento",
-                      hint: "Seleccione la fecha de su nacimiento",
-                      controller: dateCont,
-                      icon: true,
-                    ),
-                    const SizedBox(
-                      height: 60,
-                    ),
-                    SizedBox(
-                      width: 240,
-                      height: 50,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          userLogin();
-                        },
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: MyColors.themeClr,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10))),
-                        child: Text("Ingresar", style: MyStyles.white20Normal),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }
