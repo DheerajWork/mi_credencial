@@ -15,7 +15,9 @@ class MenuRow extends StatelessWidget {
           onTap: onTap,
           child: Row(
             children: [
-              Text(text!, style: MyStyles.black18Regular),
+              Text(text!, style: MyStyles.black18Regular.copyWith(
+                color: Theme.of(context).hintColor
+              )),
               const Spacer(),
               const Icon(Icons.arrow_forward_ios)
             ],

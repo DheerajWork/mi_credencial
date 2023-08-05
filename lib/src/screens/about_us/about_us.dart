@@ -7,8 +7,16 @@ class AboutUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        title: const Text("Acerca de"),
+        leading: GestureDetector(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back_ios,color: Theme.of(context).hintColor)),
+        elevation: 0,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        title: Text("Acerca de",style: TextStyle(color: Theme.of(context).hintColor)),
         centerTitle: true,
       ),
       body: Padding(
@@ -22,7 +30,9 @@ class AboutUs extends StatelessWidget {
               ),
               Text(
                 "Notas",
-                style: MyStyles.black18Light,
+                style: MyStyles.black18Light.copyWith(
+                  color: Theme.of(context).hintColor
+                ),
               ),
               const SizedBox(
                 height: 10,
@@ -31,13 +41,15 @@ class AboutUs extends StatelessWidget {
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
                   style: MyStyles.gray15Small.copyWith(
                       fontWeight: FontWeight.w300,
-                      color: const Color(0xff514E4E))),
+                      color: Theme.of(context).hintColor)),
               const SizedBox(
                 height: 60,
               ),
               Text(
                 "Políticas de privacidad",
-                style: MyStyles.black18Light,
+                style: MyStyles.black18Light.copyWith(
+                  color: Theme.of(context).hintColor
+                ),
               ),
               const SizedBox(
                 height: 10,
@@ -46,7 +58,7 @@ class AboutUs extends StatelessWidget {
                   """Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.""",
                   style: MyStyles.gray15Small.copyWith(
                       fontWeight: FontWeight.w300,
-                      color: const Color(0xff514E4E))),
+                      color: Theme.of(context).hintColor)),
             ],
           ),
         ),

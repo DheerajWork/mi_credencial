@@ -13,13 +13,18 @@ class ProfileCol extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(title!,
-            style: const TextStyle(
+            style: TextStyle(
                 fontWeight: FontWeight.w400,
-                color: Color(0xff606060),
+                color: Theme.of(context).canvasColor,
                 fontSize: 15)),
+        const SizedBox(
+          height: 3,
+        ),
         Text(
           text!,
-          style: MyStyles.black20Regular,
+          style: MyStyles.black20Regular.copyWith(
+            color: Theme.of(context).hintColor
+          ),
         ),
         const SizedBox(
           height: 15,

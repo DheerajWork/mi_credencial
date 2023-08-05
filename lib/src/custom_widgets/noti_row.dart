@@ -17,9 +17,13 @@ class NotiRow extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            Text(text!,style: MyStyles.black15Regular,),
+            Text(text!,style: MyStyles.black15Regular.copyWith(
+              color: Theme.of(context).hintColor
+            ),),
             const Spacer(),
-            Text(lastText!,style: MyStyles.gray15Light,)
+            Text(lastText!,style: MyStyles.gray15Light.copyWith(
+              color: Theme.of(context).canvasColor
+            ),)
           ],
         ),
         const SizedBox(

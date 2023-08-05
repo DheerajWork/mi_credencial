@@ -11,7 +11,14 @@ class CustomTextField extends StatelessWidget {
   final FormFieldValidator? validator;
   final TextInputType? keyboardType;
 
-  const CustomTextField({super.key, this.title, this.hint, this.icon, this.controller, this.validator, this.keyboardType});
+  const CustomTextField(
+      {super.key,
+      this.title,
+      this.hint,
+      this.icon,
+      this.controller,
+      this.validator,
+      this.keyboardType});
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +26,16 @@ class CustomTextField extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text(title!, style: MyStyles.black15Light),
+            Text(title!,
+                style: MyStyles.black15Light
+                    .copyWith(color: Theme.of(context).hintColor)),
           ],
         ),
         const SizedBox(
           height: 10,
         ),
         TextFormField(
-          keyboardType: keyboardType??TextInputType.text,
+          keyboardType: keyboardType ?? TextInputType.text,
           validator: validator,
           controller: controller,
           decoration: InputDecoration(

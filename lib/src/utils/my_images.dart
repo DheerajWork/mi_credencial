@@ -11,4 +11,6 @@ class MyImages {
   static String user = 'assets/user icon.png';
   static String minQr = 'assets/min_qr.png';
   static String bellIcon = 'assets/bell_icon.png';
+  static String phoneIcon = 'assets/call_icon.png';
+  static String whatsappIcon = 'assets/whatsapp_icon.png';
 }

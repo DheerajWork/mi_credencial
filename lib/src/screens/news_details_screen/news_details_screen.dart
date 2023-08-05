@@ -16,9 +16,16 @@ class NewsDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyColors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        title: const Text("Novedad"),
+        leading: GestureDetector(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back_ios,color: Theme.of(context).hintColor)),
+        elevation: 0,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        title: Text("Novedad",style: TextStyle(color: Theme.of(context).hintColor)),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -32,7 +39,7 @@ class NewsDetailsScreen extends StatelessWidget {
                     borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(10),
                         topRight: Radius.circular(10)),
-                    color: MyColors.grayBg),
+                    color: Theme.of(context).cardColor),
                 child: Padding(
                   padding: const EdgeInsets.all(15),
                   child: Column(
@@ -50,21 +57,27 @@ class NewsDetailsScreen extends StatelessWidget {
                       ),
                       Text(
                         title!,
-                        style: MyStyles.black22Normal,
+                        style: MyStyles.black22Normal.copyWith(
+                          color: Theme.of(context).hintColor
+                        ),
                       ),
                       const SizedBox(
                         height: 20,
                       ),
                       Text(
                         sub!,
-                        style: MyStyles.black18Regular,
+                        style: MyStyles.black18Regular.copyWith(
+                          color: Theme.of(context).hintColor
+                        ),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       Text(
                         details!,
-                        style: MyStyles.black15Light,
+                        style: MyStyles.black15Light.copyWith(
+                          color: Theme.of(context).hintColor
+                        ),
                       )
                     ],
                   ),

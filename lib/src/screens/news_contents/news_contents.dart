@@ -37,8 +37,16 @@ class _NewsContentsState extends State<NewsContents> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        title: Text("Novedades", style: MyStyles.black20Regular),
+        leading: GestureDetector(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back_ios,color: Theme.of(context).hintColor)),
+        elevation: 0,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        title: Text("Novedades",style: TextStyle(color: Theme.of(context).hintColor)),
         centerTitle: true,
       ),
       body: contentList.isEmpty

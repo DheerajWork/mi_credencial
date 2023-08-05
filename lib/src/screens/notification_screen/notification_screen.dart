@@ -8,9 +8,17 @@ class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
+        leading: GestureDetector(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back_ios,color: Theme.of(context).hintColor)),
+        elevation: 0,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        title: Text("Notificaciones",style: TextStyle(color: Theme.of(context).hintColor)),
         centerTitle: true,
-        title: Text("Notificaciones",style: MyStyles.black20Regular),
       ),
       body: const Padding(
         padding: EdgeInsets.all(20),

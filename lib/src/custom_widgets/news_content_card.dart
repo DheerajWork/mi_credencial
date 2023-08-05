@@ -25,7 +25,7 @@ class NewsContentCard extends StatelessWidget {
           child: Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: MyColors.grayBg,
+              color: Theme.of(context).cardColor,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Padding(
@@ -45,14 +45,18 @@ class NewsContentCard extends StatelessWidget {
                   ),
                   Text(
                     title,
-                    style: MyStyles.black22Normal,
+                    style: MyStyles.black22Normal.copyWith(
+                      color: Theme.of(context).hintColor
+                    ),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
                   Text(
                     subject,
-                    style: MyStyles.black18Regular,
+                    style: MyStyles.black18Regular.copyWith(
+                      color: Theme.of(context).hintColor
+                    ),
                   ),
                   const SizedBox(
                     height: 10,

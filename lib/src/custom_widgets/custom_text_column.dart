@@ -23,7 +23,7 @@ class CustomTextColumn extends StatelessWidget {
           style: MyStyles.black18Regular.copyWith(fontWeight: FontWeight.w700),
         ),
         const SizedBox(
-          height: 10,
+          height: 15,
         )
       ],
     );
